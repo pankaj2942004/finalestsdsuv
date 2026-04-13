@@ -304,14 +304,14 @@ const Administration: React.FC<AdministrationProps> = ({ language }) => {
                         <span className="info-text">{member.phone}</span>
                       </div>
                       
-                      {member.officeHours && (
+                      {('officeHours' in member && member.officeHours) && (
                         <div className="info-item">
                           <span className="info-label">🕐</span>
                           <span className="info-text">{member.officeHours}</span>
                         </div>
                       )}
                       
-                      {member.description && (
+                      {('description' in member && member.description) && (
                         <div className="info-item">
                           <span className="info-label">ℹ</span>
                           <span className="info-text">{member.description}</span>
