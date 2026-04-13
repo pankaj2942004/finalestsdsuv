@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.language-switcher {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  display: flex;
+  gap: 12px;
+  z-index: 1000;
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.language-switcher button {
+  padding: 10px 18px;
+  border: 2px solid #667eea;
+  background-color: transparent;
+  color: #667eea;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.language-switcher button:hover {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+}
+
+.language-switcher button.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+}
+
+/* Mobile Responsive Styles */
+
+/* Small phones (320px - 414px) - iPhone SE, 11, 12, 13, 14 */
+@media (max-width: 414px) {
+  .language-switcher {
+    top: 12px;
+    right: 12px;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .language-switcher button {
+    padding: 7px 12px;
+    font-size: 0.85rem;
+    border-width: 2px;
+  }
+}
+
+/* Medium phones (415px - 600px) - Pixel 7a, 8, S21, S23, S24 */
+@media (min-width: 415px) and (max-width: 600px) {
+  .language-switcher {
+    top: 15px;
+    right: 15px;
+    padding: 9px 13px;
+    gap: 10px;
+  }
+
+  .language-switcher button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablets (601px - 768px) */
+@media (min-width: 601px) and (max-width: 768px) {
+  .language-switcher {
+    top: 18px;
+    right: 18px;
+    padding: 10px 15px;
+    gap: 12px;
+  }
+
+  .language-switcher button {
+    padding: 9px 16px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Large tablets and above (769px+) */
+@media (min-width: 769px) {
+  .language-switcher {
+    top: 25px;
+    right: 25px;
+  }
+}
+
+/* Ensure proper width on very small screens */
+@media (max-width: 360px) {
+  .App {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .language-switcher {
+    top: 10px;
+    right: 10px;
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .language-switcher button {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border-width: 1.5px;
+  }
+}

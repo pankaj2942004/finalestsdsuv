@@ -1,0 +1,142 @@
+.marquee-container {
+  width: 100%;
+  background-color: #22c55e;
+  padding: 12px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 12px;
+  padding: 0 16px;
+  width: auto;
+  animation: scrollHorizontal 60s linear infinite;
+  will-change: transform;
+  white-space: nowrap;
+}
+
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: #1e40af;
+  border: 3px solid #fbbf24;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  min-height: 45px;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.marquee-item:hover {
+  background-color: #1e40af;
+  border-color: white;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.marquee-item:active {
+  transform: translateY(0);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.marquee-icon {
+  font-size: 16px;
+  display: inline-block;
+}
+
+.marquee-text {
+  display: inline-block;
+}
+
+@keyframes scrollHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .marquee-item {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .marquee-icon {
+    font-size: 14px;
+  }
+
+  .marquee-content {
+    gap: 10px;
+    padding: 0 12px;
+    animation: scrollMarquee 75s linear infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-container {
+    padding: 10px 0;
+  }
+
+  .marquee-item {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .marquee-icon {
+    font-size: 13px;
+  }
+
+  .marquee-content {
+    gap: 8px;
+    padding: 0 10px;
+    animation: scrollMarquee 45s linear infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-container {
+    padding: 8px 0;
+  }
+
+  .marquee-item {
+    padding: 5px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .marquee-icon {
+    font-size: 12px;
+  }
+
+  .marquee-content {
+    gap: 6px;
+    padding: 0 8px;
+    animation: scrollMarquee 40s linear infinite;
+  }
+}

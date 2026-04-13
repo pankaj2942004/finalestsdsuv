@@ -1,0 +1,958 @@
+.research-publications {
+  background-color: #f8f9fa;
+  padding: 40px 20px;
+}
+
+.research-container {
+  display: flex;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.research-sidebar {
+  flex: 0 0 45%;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.expanded-content {
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-header {
+  background-color: #2ecc71;
+  color: white;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.content-description {
+  padding: 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 10px 0;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.view-more-btn {
+  display: block;
+  margin: 0 20px 20px 20px;
+  padding: 10px 24px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #27ae60;
+}
+
+.menu-items-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  margin-bottom: 0;
+  border: 1px solid #d0d0d0;
+  border-top: none;
+  background-color: white;
+}
+
+.menu-item:first-child {
+  border-top: 1px solid #d0d0d0;
+}
+
+.menu-button {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  background-color: white;
+  color: #333;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.menu-button:hover {
+  background-color: #f8f8f8;
+}
+
+.menu-button.active {
+  background-color: #f0f0f0;
+  color: #2ecc71;
+}
+
+.dropdown-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.menu-button.active .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.research-content {
+  flex: 1;
+}
+
+.featured-image {
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 280px;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.research-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+
+.research-header h2 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.read-more {
+  color: #2ecc71;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.read-more:hover {
+  color: #27ae60;
+}
+
+.publications-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.publication-card {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  gap: 20px;
+}
+
+.publication-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.publication-image {
+  flex: 0 0 200px;
+  position: relative;
+  overflow: hidden;
+  height: 140px;
+}
+
+.publication-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.publication-date {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2ecc71;
+  color: white;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.publication-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.publication-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+.publication-info p {
+  color: #666;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.details-link {
+  color: #999;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+.details-link:hover {
+  color: #2ecc71;
+}
+
+@media (max-width: 1024px) {
+  .research-publications {
+    padding: 30px 20px;
+  }
+
+  .research-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .research-sidebar {
+    flex: 1;
+  }
+
+  .sidebar-title {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  .menu-items-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .menu-item {
+    flex: 1;
+    min-width: 140px;
+    border: 1px solid #d0d0d0;
+  }
+
+  .menu-button {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+
+  .featured-image {
+    margin-bottom: 20px;
+    height: 220px;
+  }
+
+  .research-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .research-header h2 {
+    font-size: 24px;
+  }
+
+  .publication-card {
+    gap: 15px;
+  }
+
+  .publication-image {
+    flex: 0 0 160px;
+    height: 120px;
+  }
+
+  .publication-info {
+    padding: 15px;
+  }
+
+  .publication-info h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .publication-info p {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .details-link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .research-publications {
+    padding: 20px 15px;
+  }
+
+  .sidebar-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .expanded-content {
+    margin-bottom: 15px;
+  }
+
+  .content-header {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+
+  .content-description {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .menu-button {
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+
+  .featured-image {
+    margin-bottom: 15px;
+    height: 180px;
+  }
+
+  .research-header h2 {
+    font-size: 20px;
+  }
+
+  .read-more {
+    font-size: 12px;
+  }
+
+  .publication-card {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .publication-image {
+    flex: 1;
+    height: auto;
+    min-height: 150px;
+  }
+
+  .publication-info {
+    padding: 12px;
+  }
+
+  .publication-info h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .publication-info p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .research-publications {
+    padding: 15px 10px;
+  }
+
+  .sidebar-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .menu-items-list {
+    gap: 5px;
+  }
+
+  .menu-item {
+    min-width: 100px;
+  }
+
+  .menu-button {
+    padding: 8px 8px;
+    font-size: 11px;
+  }
+
+  .featured-image {
+    height: 140px;
+  }
+
+  .research-header h2 {
+    font-size: 18px;
+  }
+
+  .publication-image {
+    min-height: 120px;
+  }
+
+  .publication-info {
+    padding: 10px;
+  }
+
+  .publication-info h3 {
+    font-size: 13px;
+  }
+
+  .publication-info p {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Extra small devices (iPhone 8, Pixel 3) - 375px and under */
+@media (max-width: 375px) {
+  .research-publications {
+    padding: 12px 8px;
+  }
+
+  .research-container {
+    gap: 15px;
+  }
+
+  .sidebar-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .expanded-content {
+    margin-bottom: 12px;
+  }
+
+  .content-header {
+    padding: 10px 12px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .content-description {
+    padding: 12px;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 0 0 8px 0;
+  }
+
+  .view-more-btn {
+    margin: 0 12px 12px 12px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .menu-items-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu-item {
+    border: 1px solid #d0d0d0;
+    margin-bottom: 0;
+  }
+
+  .menu-button {
+    padding: 10px 10px;
+    font-size: 12px;
+    min-height: 40px;
+  }
+
+  .dropdown-icon {
+    font-size: 11px;
+  }
+
+  .featured-image {
+    height: 120px;
+    margin-bottom: 12px;
+  }
+
+  .research-header {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .research-header h2 {
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .read-more {
+    font-size: 11px;
+    white-space: normal;
+  }
+
+  .publications-list {
+    gap: 15px;
+  }
+
+  .publication-card {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .publication-image {
+    flex: 1;
+    height: 150px;
+    min-height: 150px;
+  }
+
+  .publication-date {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .publication-info {
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .publication-info h3 {
+    font-size: 12px;
+    margin: 0 0 6px 0;
+    line-height: 1.2;
+  }
+
+  .publication-info p {
+    font-size: 10px;
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+  }
+
+  .details-link {
+    font-size: 11px;
+  }
+}
+
+/* Ultra small devices under 360px */
+@media (max-width: 359px) {
+  .research-publications {
+    padding: 10px 6px;
+  }
+
+  .sidebar-title {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .content-header {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .content-description {
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .menu-button {
+    padding: 8px 8px;
+    font-size: 11px;
+  }
+
+  .featured-image {
+    height: 100px;
+  }
+
+  .research-header h2 {
+    font-size: 14px;
+  }
+
+  .publication-image {
+    height: 120px;
+  }
+
+  .publication-info h3 {
+    font-size: 11px;
+  }
+
+  .publication-info p {
+    font-size: 9px;
+  }
+}
+
+/* Small to Medium phones (390-414px) - iPhone 11, 12, 13, 14, Pixel 7, 8a */
+@media (min-width: 360px) and (max-width: 414px) {
+  .research-publications {
+    padding: 14px 10px;
+  }
+
+  .research-container {
+    gap: 16px;
+  }
+
+  .sidebar-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .expanded-content {
+    margin-bottom: 14px;
+    border-radius: 6px;
+  }
+
+  .content-header {
+    padding: 11px 14px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .content-description {
+    padding: 13px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+  }
+
+  .view-more-btn {
+    margin: 0 13px 13px 13px;
+    padding: 9px 18px;
+    font-size: 13px;
+    height: 40px;
+  }
+
+  .menu-items-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu-item {
+    border: 1px solid #d0d0d0;
+  }
+
+  .menu-button {
+    padding: 11px 12px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+
+  .dropdown-icon {
+    font-size: 12px;
+  }
+
+  .featured-image {
+    height: 140px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+  }
+
+  .research-header {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .research-header h2 {
+    font-size: 17px;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .read-more {
+    font-size: 12px;
+  }
+
+  .publications-list {
+    gap: 16px;
+  }
+
+  .publication-card {
+    flex-direction: column;
+    gap: 0;
+    border-radius: 6px;
+  }
+
+  .publication-image {
+    flex: 1;
+    height: 160px;
+    min-height: 160px;
+  }
+
+  .publication-date {
+    font-size: 12px;
+    padding: 7px 11px;
+  }
+
+  .publication-info {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .publication-info h3 {
+    font-size: 13px;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .publication-info p {
+    font-size: 11px;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+    color: #666;
+  }
+
+  .details-link {
+    font-size: 12px;
+  }
+}
+
+/* Medium phones (415-480px) - Pixel 7a, 8, Larger Androids */
+@media (min-width: 415px) and (max-width: 480px) {
+  .research-publications {
+    padding: 16px 12px;
+  }
+
+  .research-container {
+    gap: 18px;
+  }
+
+  .sidebar-title {
+    font-size: 16px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .expanded-content {
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .content-header {
+    padding: 13px 16px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .content-description {
+    padding: 15px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+  }
+
+  .view-more-btn {
+    margin: 0 15px 15px 15px;
+    padding: 10px 20px;
+    font-size: 13px;
+    height: 42px;
+  }
+
+  .menu-items-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu-item {
+    border: 1px solid #d0d0d0;
+  }
+
+  .menu-button {
+    padding: 12px 14px;
+    font-size: 13px;
+    min-height: 44px;
+  }
+
+  .dropdown-icon {
+    font-size: 13px;
+  }
+
+  .featured-image {
+    height: 160px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+  }
+
+  .research-header {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .research-header h2 {
+    font-size: 20px;
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .read-more {
+    font-size: 13px;
+  }
+
+  .publications-list {
+    gap: 18px;
+  }
+
+  .publication-card {
+    flex-direction: column;
+    gap: 0;
+    border-radius: 8px;
+  }
+
+  .publication-image {
+    flex: 1;
+    height: 180px;
+    min-height: 180px;
+  }
+
+  .publication-date {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .publication-info {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .publication-info h3 {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  .publication-info p {
+    font-size: 12px;
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+    color: #666;
+  }
+
+  .details-link {
+    font-size: 12px;
+  }
+}
+
+/* Large tablets and small laptops (600px+) */
+@media (min-width: 600px) {
+  .research-publications {
+    padding: 30px 25px;
+  }
+
+  .research-container {
+    gap: 35px;
+  }
+
+  .research-sidebar {
+    flex: 0 0 50%;
+  }
+
+  .sidebar-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .expanded-content {
+    margin-bottom: 22px;
+  }
+
+  .content-header {
+    padding: 18px 22px;
+    font-size: 16px;
+  }
+
+  .content-description {
+    padding: 22px;
+    font-size: 14px;
+  }
+
+  .view-more-btn {
+    margin: 0 22px 22px 22px;
+    padding: 12px 28px;
+    font-size: 14px;
+    height: 44px;
+  }
+
+  .menu-items-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu-button {
+    padding: 14px 18px;
+    font-size: 14px;
+    min-height: 48px;
+  }
+
+  .featured-image {
+    height: 280px;
+    margin-bottom: 30px;
+  }
+
+  .research-header h2 {
+    font-size: 32px;
+  }
+
+  .read-more {
+    font-size: 13px;
+  }
+
+  .publication-card {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .publication-image {
+    flex: 0 0 220px;
+    height: 160px;
+  }
+
+  .publication-info {
+    padding: 22px;
+  }
+
+  .publication-info h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .publication-info p {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .details-link {
+    font-size: 13px;
+  }
+}
