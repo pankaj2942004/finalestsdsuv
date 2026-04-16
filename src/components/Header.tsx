@@ -37,12 +37,6 @@ const Header: React.FC<HeaderProps> = ({ language, setCurrentPage }) => {
       labelHi: 'à¤¸à¤°à¤•à¤¾à¤°à¥€ à¤¸à¥à¤¨à¤¾à¤¤à¤•à¥‹à¤¤à¥à¤¤à¤° à¤®à¤¹à¤¾à¤µà¤¿à¤¦à¥à¤¯à¤¾à¤²à¤¯ - à¤—à¥‹à¤ªà¥‡à¤¶à¥à¤µà¤°, à¤šà¤®à¥‹à¤²à¥€',
       url: '#'
     },
-    
-    {
-      labelEn: 'Government Degree College Chandrabadni (Naikhi)',
-      labelHi: 'à¤¸à¤°à¤•à¤¾à¤°à¥€ à¤®à¤¹à¤¾à¤µà¤¿à¤¦à¥à¤¯à¤¾à¤²à¤¯',
-      url: '#'
-    },
     {
       labelEn: 'University Affiliated Colleges',
       labelHi: 'à¤µà¤¿à¤¶à¥à¤µà¤µà¤¿à¤¦à¥à¤¯à¤¾à¤²à¤¯ à¤¸à¤‚à¤¬à¤¦à¥à¤§ à¤®à¤¹à¤¾à¤µà¤¿à¤¦à¥à¤¯à¤¾à¤²à¤¯',

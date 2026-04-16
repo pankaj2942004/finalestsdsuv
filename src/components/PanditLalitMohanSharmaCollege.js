@@ -1,4 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import React from 'react';
 import '../styles/PanditLalitMohanSharmaCollege.css';
 const PanditLalitMohanSharmaCollege = ({ language, onBack, setCurrentPage }) => {
     const content = {
@@ -14,6 +15,8 @@ const PanditLalitMohanSharmaCollege = ({ language, onBack, setCurrentPage }) => 
                 'Library, lab, and digital academic support for learners'
             ],
             departmentsTitle: 'Departments',
+            departmentsHelpText: 'Select a department below to preview details in this section.',
+            previewButtonText: 'Open Full Department Profile',
             departments: [
                 'Mathematics',
                 'Microbiology',
@@ -48,6 +51,8 @@ const PanditLalitMohanSharmaCollege = ({ language, onBack, setCurrentPage }) => 
                 'Library, lab, and digital academic support for learners'
             ],
             departmentsTitle: 'Departments',
+            departmentsHelpText: 'Select a department below to preview details in this section.',
+            previewButtonText: 'Open Full Department Profile',
             departments: [
                 'Mathematics',
                 'Microbiology',
@@ -92,7 +97,13 @@ const PanditLalitMohanSharmaCollege = ({ language, onBack, setCurrentPage }) => 
         'Home Science': 'dept-home-science',
         Botany: 'dept-botany'
     };
-    return (_jsxs("div", { className: "pandit-lalit-college-page", children: [_jsxs("div", { className: "pandit-lalit-college-header", children: [_jsx("button", { className: "back-button", onClick: onBack, children: language === 'en' ? 'Back' : 'Back' }), _jsx("h1", { children: data.title }), _jsx("p", { className: "pandit-lalit-college-subtitle", children: data.subtitle })] }), _jsxs("div", { className: "pandit-lalit-college-container", children: [_jsxs("section", { className: "pandit-lalit-college-about", children: [_jsx("h2", { children: data.aboutTitle }), _jsx("p", { children: data.aboutText }), _jsx("div", { className: "pandit-lalit-college-highlights", children: data.aboutHighlights.map((item, index) => (_jsxs("div", { className: "pandit-lalit-college-highlight-item", children: [_jsx("span", { className: "highlight-dot", children: "\u2022" }), _jsx("span", { children: item })] }, index))) })] }), _jsxs("section", { className: "pandit-lalit-college-departments", children: [_jsx("h2", { children: data.departmentsTitle }), _jsx("div", { className: "pandit-lalit-college-departments-grid", children: data.departments.map((department, index) => (_jsx("button", { className: "pandit-lalit-college-department-card", onClick: () => setCurrentPage(departmentPageMap[department]), children: department }, index))) })] }), _jsx("p", { className: "pandit-lalit-college-note", children: data.note })] })] }));
+    const handleOpenDepartmentProfile = (department) => {
+        const targetPage = departmentPageMap[department];
+        if (targetPage && setCurrentPage) {
+            setCurrentPage(targetPage);
+        }
+    };
+    return (_jsxs("div", { className: "pandit-lalit-college-page", children: [_jsxs("div", { className: "pandit-lalit-college-header", children: [_jsx("button", { className: "back-button", onClick: onBack, children: language === 'en' ? 'Back' : 'Back' }), _jsx("h1", { children: data.title })] }), _jsxs("div", { className: "pandit-lalit-college-container", children: [_jsxs("section", { className: "pandit-lalit-college-about", children: [_jsx("h2", { children: data.aboutTitle }), _jsx("p", { children: data.aboutText }), _jsx("div", { className: "pandit-lalit-college-highlights", children: data.aboutHighlights.map((item, index) => (_jsxs("div", { className: "pandit-lalit-college-highlight-item", children: [_jsx("span", { className: "highlight-dot", children: "*" }), _jsx("span", { children: item })] }, index))) })] }), _jsxs("section", { className: "pandit-lalit-college-departments", children: [_jsx("h2", { children: data.departmentsTitle }), _jsx("p", { className: "pandit-lalit-college-departments-help", children: data.departmentsHelpText }), _jsx("div", { className: "pandit-lalit-college-departments-grid", children: data.departments.map((department, index) => (_jsx("button", { type: "button", className: "pandit-lalit-college-department-card", onClick: () => handleOpenDepartmentProfile(department), children: department }, index))) })] }), _jsx("p", { className: "pandit-lalit-college-note", children: data.note })] })] }));
 };
 export default PanditLalitMohanSharmaCollege;
 //# sourceMappingURL=PanditLalitMohanSharmaCollege.js.map

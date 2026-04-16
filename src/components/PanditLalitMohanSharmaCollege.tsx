@@ -12,7 +12,6 @@ const PanditLalitMohanSharmaCollege: React.FC<PanditLalitMohanSharmaCollegeProps
   onBack,
   setCurrentPage
 }) => {
-  const [selectedDepartment, setSelectedDepartment] = React.useState<string>('Botany');
 
   const content = {
     en: {
@@ -113,41 +112,11 @@ const PanditLalitMohanSharmaCollege: React.FC<PanditLalitMohanSharmaCollegeProps
     Botany: 'dept-botany'
   };
 
-  const departmentPreviewMap: Record<string, { image: string; summary: string }> = {
-    Botany: {
-      image: '/img/botany/botany-department-group.jpeg',
-      summary:
-        'Botany department details and faculty CVs are now available. Use the button below to open the full Botany page.'
-    },
-    History: {
-      image: '/img/H2.jpg',
-      summary: 'History department profile and faculty data are available in the detailed section.'
-    },
-    Hindi: {
-      image: '/img/hindi/hindi-department-group.jpeg',
-      summary: 'Hindi department profile, faculty entries, and documents are available in the detailed section.'
-    },
-    Education: {
-      image: '/img/education/education-group-photo.jpg',
-      summary: 'Education department photo and details are available in the detailed section.'
-    },
-    English: {
-      image: '/img/H3.jpg',
-      summary: 'English department profile and faculty CV links are available in the detailed section.'
-    },
-    'Home Science': {
-      image: '/img/H4.jpg',
-      summary: 'Home Science department profile and faculty details are available in the detailed section.'
-    },
-    Geography: {
-      image: '/img/H2.jpg',
-      summary: 'Geography department profile and faculty details are available in the detailed section.'
+  const handleOpenDepartmentProfile = (department: string) => {
+    const targetPage = departmentPageMap[department];
+    if (targetPage && setCurrentPage) {
+      setCurrentPage(targetPage);
     }
-  };
-
-  const preview = departmentPreviewMap[selectedDepartment] || {
-    image: '/img/H3.jpg',
-    summary: `${selectedDepartment} department profile is available. Open the full page for complete details.`
   };
 
   return (
@@ -157,7 +126,6 @@ const PanditLalitMohanSharmaCollege: React.FC<PanditLalitMohanSharmaCollegeProps
           {language === 'en' ? 'Back' : 'Back'}
         </button>
         <h1>{data.title}</h1>
-        <p className="pandit-lalit-college-subtitle">{data.subtitle}</p>
       </div>
 
       <div className="pandit-lalit-college-container">
@@ -180,26 +148,14 @@ const PanditLalitMohanSharmaCollege: React.FC<PanditLalitMohanSharmaCollegeProps
           <div className="pandit-lalit-college-departments-grid">
             {data.departments.map((department, index) => (
               <button
+                type="button"
                 key={index}
                 className="pandit-lalit-college-department-card"
-                onClick={() => setSelectedDepartment(department)}
+                onClick={() => handleOpenDepartmentProfile(department)}
               >
                 {department}
               </button>
             ))}
-          </div>
-          <div className="pandit-lalit-college-department-preview">
-            <img src={preview.image} alt={`${selectedDepartment} department`} />
-            <div className="pandit-lalit-college-department-preview-content">
-              <h3>{selectedDepartment}</h3>
-              <p>{preview.summary}</p>
-              <button
-                className="pandit-lalit-college-open-btn"
-                onClick={() => setCurrentPage(departmentPageMap[selectedDepartment])}
-              >
-                {data.previewButtonText}
-              </button>
-            </div>
           </div>
         </section>
 

@@ -36,20 +36,24 @@ const ResearchPublications: React.FC<ResearchPublicationsProps> = ({ language, s
   };
 
   const handleMenuItemClick = (itemId: string) => {
-    if (itemId === 'internal-quality-assurance' && setCurrentPage) {
+    setExpandedMenu(expandedMenu === itemId ? '' : itemId);
+  };
+
+  const handleViewMoreClick = (itemId: string) => {
+    if (!itemId || !setCurrentPage) return;
+
+    if (itemId === 'internal-quality-assurance') {
       setCurrentPage('iqac');
-    } else if (itemId === 'mou' && setCurrentPage) {
+    } else if (itemId === 'mou') {
       setCurrentPage('moues');
-    } else if (itemId === 'center-excellence' && setCurrentPage) {
+    } else if (itemId === 'center-excellence') {
       setCurrentPage('centre-excellence-page');
-    } else if (itemId === 'research-development' && setCurrentPage) {
+    } else if (itemId === 'research-development') {
       setCurrentPage('research-development');
-    } else if (itemId === 'faculty-development' && setCurrentPage) {
+    } else if (itemId === 'faculty-development') {
       setCurrentPage('faculty-development');
-    } else if (itemId === 'conference-seminar' && setCurrentPage) {
+    } else if (itemId === 'conference-seminar') {
       setCurrentPage('conference-seminar-workshop');
-    } else {
-      setExpandedMenu(expandedMenu === itemId ? '' : itemId);
     }
   };
 
@@ -131,41 +135,44 @@ const ResearchPublications: React.FC<ResearchPublicationsProps> = ({ language, s
     }
   ];
 
-  const expandedItem = menuItems.find(item => item.id === expandedMenu);
-  const headerTitle = language === 'en' ? expandedItem?.headerTitleEn : expandedItem?.headerTitleHi;
-  const description = language === 'en' ? expandedItem?.descriptionEn : expandedItem?.descriptionHi;
-
   return (
     <div className="research-publications">
       <div className="research-container">
         <div className="research-sidebar">
           <h3 className="sidebar-title">Sri Dev Suman University</h3>
-          
-          {description && (
-            <div className="expanded-content">
-              <div className="content-header">{headerTitle}</div>
-              <p className="content-description">{description}</p>
-              <button 
-                className="view-more-btn"
-                onClick={() => handleMenuItemClick(expandedMenu)}
-              >
-                {language === 'en' ? 'View More' : 'और देखें'}
-              </button>
-            </div>
-          )}
 
           <div className="menu-items-list">
-            {menuItems.map((item) => (
-              <div key={item.id} className="menu-item">
-                <button
-                  className={`menu-button ${expandedMenu === item.id ? 'active' : ''}`}
-                  onClick={() => handleMenuItemClick(item.id)}
-                >
-                  <span>{language === 'en' ? item.titleEn : item.titleHi}</span>
-                  <span className="dropdown-icon">▼</span>
-                </button>
-              </div>
-            ))}
+            {menuItems.map((item) => {
+              const isFixed = item.id === 'internal-quality-assurance';
+              const isExpanded = isFixed || expandedMenu === item.id;
+              const itemDescription = language === 'en' ? item.descriptionEn : item.descriptionHi;
+
+              return (
+                <div key={item.id} className="menu-item">
+                  <button
+                    className={`menu-button ${isExpanded ? 'active' : ''}`}
+                    onClick={() => item.id !== 'internal-quality-assurance' && handleMenuItemClick(item.id)}
+                  >
+                    <span>{language === 'en' ? item.titleEn : item.titleHi}</span>
+                    {item.id !== 'internal-quality-assurance' && (
+                      <span className="dropdown-icon">{isExpanded ? '▲' : '▼'}</span>
+                    )}
+                  </button>
+
+                  {isExpanded && (
+                    <div className="item-details">
+                      <p className="content-description">{itemDescription}</p>
+                      <button
+                        className="view-more-btn"
+                        onClick={() => handleViewMoreClick(item.id)}
+                      >
+                        {language === 'en' ? 'View More' : 'और देखें'}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 

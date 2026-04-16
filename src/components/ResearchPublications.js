@@ -9,26 +9,28 @@ const ResearchPublications = ({ language, setCurrentPage }) => {
         }
     };
     const handleMenuItemClick = (itemId) => {
-        if (itemId === 'internal-quality-assurance' && setCurrentPage) {
+        setExpandedMenu(expandedMenu === itemId ? '' : itemId);
+    };
+    const handleViewMoreClick = (itemId) => {
+        if (!itemId || !setCurrentPage)
+            return;
+        if (itemId === 'internal-quality-assurance') {
             setCurrentPage('iqac');
         }
-        else if (itemId === 'mou' && setCurrentPage) {
+        else if (itemId === 'mou') {
             setCurrentPage('moues');
         }
-        else if (itemId === 'center-excellence' && setCurrentPage) {
+        else if (itemId === 'center-excellence') {
             setCurrentPage('centre-excellence-page');
         }
-        else if (itemId === 'research-development' && setCurrentPage) {
+        else if (itemId === 'research-development') {
             setCurrentPage('research-development');
         }
-        else if (itemId === 'faculty-development' && setCurrentPage) {
+        else if (itemId === 'faculty-development') {
             setCurrentPage('faculty-development');
         }
-        else if (itemId === 'conference-seminar' && setCurrentPage) {
+        else if (itemId === 'conference-seminar') {
             setCurrentPage('conference-seminar-workshop');
-        }
-        else {
-            setExpandedMenu(expandedMenu === itemId ? '' : itemId);
         }
     };
     const menuItems = [
@@ -107,10 +109,12 @@ const ResearchPublications = ({ language, setCurrentPage }) => {
             date: 'June 3, 2026'
         }
     ];
-    const expandedItem = menuItems.find(item => item.id === expandedMenu);
-    const headerTitle = language === 'en' ? expandedItem?.headerTitleEn : expandedItem?.headerTitleHi;
-    const description = language === 'en' ? expandedItem?.descriptionEn : expandedItem?.descriptionHi;
-    return (_jsx("div", { className: "research-publications", children: _jsxs("div", { className: "research-container", children: [_jsxs("div", { className: "research-sidebar", children: [_jsx("h3", { className: "sidebar-title", children: "Sri Dev Suman University" }), description && (_jsxs("div", { className: "expanded-content", children: [_jsx("div", { className: "content-header", children: headerTitle }), _jsx("p", { className: "content-description", children: description }), _jsx("button", { className: "view-more-btn", onClick: () => handleMenuItemClick(expandedMenu), children: language === 'en' ? 'View More' : 'और देखें' })] })), _jsx("div", { className: "menu-items-list", children: menuItems.map((item) => (_jsx("div", { className: "menu-item", children: _jsxs("button", { className: `menu-button ${expandedMenu === item.id ? 'active' : ''}`, onClick: () => handleMenuItemClick(item.id), children: [_jsx("span", { children: language === 'en' ? item.titleEn : item.titleHi }), _jsx("span", { className: "dropdown-icon", children: "\u25BC" })] }) }, item.id))) })] }), _jsxs("div", { className: "research-content", children: [_jsx("div", { className: "featured-image", children: _jsx("img", { src: "/img/SECOND.jpg", alt: "Research Featured" }) }), _jsxs("div", { className: "research-header", children: [_jsx("h2", { children: language === 'en' ? 'Research Publication & Book Published' : 'अनुसंधान प्रकाशन और पुस्तक प्रकाशित' }), _jsx("a", { href: "#", className: "read-more", children: language === 'en' ? 'Read more...' : 'और अधिक पढ़ें...' })] }), _jsx("div", { className: "publications-list", children: publications.map((pub) => (_jsxs("div", { className: "publication-card", children: [_jsxs("div", { className: "publication-image", children: [_jsx("img", { src: pub.image, alt: language === 'en' ? pub.titleEn : pub.titleHi }), _jsx("div", { className: "publication-date", children: pub.date })] }), _jsxs("div", { className: "publication-info", children: [_jsx("h3", { children: language === 'en' ? pub.titleEn : pub.titleHi }), _jsx("p", { children: language === 'en' ? pub.descriptionEn : pub.descriptionHi }), _jsx("button", { className: "details-link", onClick: () => handlePublicationClick(pub.id), style: { background: 'none', border: 'none', cursor: 'pointer', padding: 0 }, children: language === 'en' ? 'Details' : 'विवरण' })] })] }, pub.id))) })] })] }) }));
+    return (_jsx("div", { className: "research-publications", children: _jsxs("div", { className: "research-container", children: [_jsxs("div", { className: "research-sidebar", children: [_jsx("h3", { className: "sidebar-title", children: "Sri Dev Suman University" }), _jsx("div", { className: "menu-items-list", children: menuItems.map((item) => {
+                                const isFixed = item.id === 'internal-quality-assurance';
+                                const isExpanded = isFixed || expandedMenu === item.id;
+                                const itemDescription = language === 'en' ? item.descriptionEn : item.descriptionHi;
+                                return (_jsxs("div", { className: "menu-item", children: [_jsxs("button", { className: `menu-button ${isExpanded ? 'active' : ''}`, onClick: () => item.id !== 'internal-quality-assurance' && handleMenuItemClick(item.id), children: [_jsx("span", { children: language === 'en' ? item.titleEn : item.titleHi }), item.id !== 'internal-quality-assurance' && (_jsx("span", { className: "dropdown-icon", children: isExpanded ? '▲' : '▼' }))] }), isExpanded && (_jsxs("div", { className: "item-details", children: [_jsx("p", { className: "content-description", children: itemDescription }), _jsx("button", { className: "view-more-btn", onClick: () => handleViewMoreClick(item.id), children: language === 'en' ? 'View More' : 'और देखें' })] }))] }, item.id));
+                            }) })] }), _jsxs("div", { className: "research-content", children: [_jsx("div", { className: "featured-image", children: _jsx("img", { src: "/img/SECOND.jpg", alt: "Research Featured" }) }), _jsxs("div", { className: "research-header", children: [_jsx("h2", { children: language === 'en' ? 'Research Publication & Book Published' : 'अनुसंधान प्रकाशन और पुस्तक प्रकाशित' }), _jsx("a", { href: "#", className: "read-more", children: language === 'en' ? 'Read more...' : 'और अधिक पढ़ें...' })] }), _jsx("div", { className: "publications-list", children: publications.map((pub) => (_jsxs("div", { className: "publication-card", children: [_jsxs("div", { className: "publication-image", children: [_jsx("img", { src: pub.image, alt: language === 'en' ? pub.titleEn : pub.titleHi }), _jsx("div", { className: "publication-date", children: pub.date })] }), _jsxs("div", { className: "publication-info", children: [_jsx("h3", { children: language === 'en' ? pub.titleEn : pub.titleHi }), _jsx("p", { children: language === 'en' ? pub.descriptionEn : pub.descriptionHi }), _jsx("button", { className: "details-link", onClick: () => handlePublicationClick(pub.id), style: { background: 'none', border: 'none', cursor: 'pointer', padding: 0 }, children: language === 'en' ? 'Details' : 'विवरण' })] })] }, pub.id))) })] })] }) }));
 };
 export default ResearchPublications;
 //# sourceMappingURL=ResearchPublications.js.map
